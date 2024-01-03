@@ -7,7 +7,7 @@
     "jsx": "react-jsx" /* Specify what JSX code is generated. */,
 
     /* Modules */
-    "module": "ES2020" /* Specify what module code is generated. */,
+    "module": "NodeNext" /* Specify what module code is generated. */,
     "moduleResolution": "NodeNext",
     "allowImportingTsExtensions": true,
 

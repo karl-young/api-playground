@@ -22,7 +22,7 @@ const Affirmations = () => {
     <>
     <div>
       <h1>Affirmation</h1>
-      <h2>{affirmation?.affirmation}</h2>
+      <h3>{affirmation?.affirmation}</h3>
     </div>
     </>
   )

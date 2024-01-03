@@ -1,6 +1,9 @@
 import { ApiClentParams } from '../../models/Weather.ts'
 
-const getWeatherData = async ({ latitude, longitude }: ApiClentParams) => {
+export const getWeatherData = async ({
+  latitude,
+  longitude,
+}: ApiClentParams) => {
   const params = {
     latitude: latitude,
     longitude: longitude,
@@ -22,12 +25,10 @@ const getWeatherData = async ({ latitude, longitude }: ApiClentParams) => {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
     const data = await response.json()
-
+    console.log(data)
     return data
   } catch (error) {
     console.error(error, "Didn't get weather data")
     throw error
   }
 }
-
-export default getWeatherData

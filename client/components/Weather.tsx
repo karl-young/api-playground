@@ -1,10 +1,19 @@
 import { useEffect, useState } from 'react'
-import getWeatherData from '../apis/weatherApi.ts'
-import { WeatherType } from '../../models/Weather.ts'
+import getWeatherData, { Weather, HourlyData } from '../apis/weatherApi.ts'
 
+// interface Weather {
+//   hourly: {
+//     time: string[]
+//     temperature_2m: number[]
+//     relative_humidity_2m: number[]
+//     rain: number[]
+//     visibility: number[]
+//   }
+// }
 const Weather = () => {
-  const [weather, setWeather] = useState<WeatherType | null>(null)
-
+  const [weather, setWeather] = useState<Weather | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [Error, setError] = useState(false)
   useEffect(() => {
     fetchWeather()
   }, [])
@@ -12,18 +21,40 @@ const Weather = () => {
   async function fetchWeather() {
     try {
       const weatherData = await getWeatherData()
+      console.log(weatherData)
       setWeather(weatherData)
     } catch (error) {
       console.error(error, "Didn't get Weather")
+      setError(true)
+    } finally {
+      setLoading(false)
     }
   }
+
+  if (Error) {
+    return <p>Error fetching weather data</p>
+  }
+  if (loading) {
+    return <p>Loading...</p>
+  }
+
+  const currentDate = new Date()
+  const currentISODate = currentDate.toISOString()
+
+  const currentIndex = weather?.hourly.time.indexOf(currentISODate)
   return (
     <>
       <div>
         <h1>Weather</h1>
-        <p>{weather?.current?.temperature_2m}</p>
-        <p>{weather?.current?.time}</p>
-        <p>{weather?.current?.interval}</p>
+        {weather?.hourly.map((hourData: HourlyData, index: number) => (
+          <div key={index}>
+            <p>Time: {hourData.time}</p>
+            <p>Temperature: {hourData.temperature_2m}</p>
+            <p>Humidity: {hourData.relative_humidity_2m}</p>
+            <p>Rain: {hourData.rain}</p>
+            <p>Visibility: {hourData.visibility}</p>
+          </div>
+        ))}
       </div>
     </>
   )

@@ -8,7 +8,7 @@ export interface HourlyData {
   visibility: number
 }
 
-export interface Weather {
+export interface WeatherData {
   latitude: number
   longitude: number
   generationtime_ms: number
@@ -17,13 +17,14 @@ export interface Weather {
   elevation: number
   current_units: CurrentUnits
   current: Current
-  hourly: HourlyData[] // Update this line
 }
 
 export interface Current {
   time: string
   interval: number
   temperature_2m: number
+  relative_humidity_2m: number
+  apparent_temperature: number
 }
 
 export interface CurrentUnits {
@@ -31,11 +32,11 @@ export interface CurrentUnits {
   interval: string
   temperature_2m: string
 }
-export async function getWeatherData(): Promise<Weather> {
+export async function getWeatherData(): Promise<WeatherData> {
   const response = await request.get(
-    'https://api.open-meteo.com/v1/forecast?latitude=-45.9281&longitude=170.1983&hourly=temperature_2m,relative_humidity_2m,rain,visibility&timezone=Pacific%2FAuckland'
+    'https://api.open-meteo.com/v1/forecast?latitude=-45.9281&longitude=170.1983&current=temperature_2m,relative_humidity_2m,apparent_temperature&timezone=auto'
   )
-  console.log(response.body)
+  console.log(response.body, 'Api response')
   return response.body
 }
 

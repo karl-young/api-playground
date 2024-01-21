@@ -1,17 +1,9 @@
 import { useEffect, useState } from 'react'
-import getWeatherData, { Weather, HourlyData } from '../apis/weatherApi.ts'
+import getWeatherData, { WeatherData, HourlyData } from '../apis/weatherApi.ts'
 
-// interface Weather {
-//   hourly: {
-//     time: string[]
-//     temperature_2m: number[]
-//     relative_humidity_2m: number[]
-//     rain: number[]
-//     visibility: number[]
-//   }
-// }
+
 const Weather = () => {
-  const [weather, setWeather] = useState<Weather | null>(null)
+  const [weather, setWeather] = useState<WeatherData | null>(null)
   const [loading, setLoading] = useState(true)
   const [Error, setError] = useState(false)
   useEffect(() => {
@@ -20,9 +12,9 @@ const Weather = () => {
 
   async function fetchWeather() {
     try {
-      const weatherData = await getWeatherData()
-      console.log(weatherData)
-      setWeather(weatherData)
+      const weatherResponse = await getWeatherData()
+      console.log(weatherResponse, "here")
+      setWeather(weatherResponse)
     } catch (error) {
       console.error(error, "Didn't get Weather")
       setError(true)
@@ -41,20 +33,16 @@ const Weather = () => {
   const currentDate = new Date()
   const currentISODate = currentDate.toISOString()
 
-  const currentIndex = weather?.hourly.time.indexOf(currentISODate)
+  //const currentIndex = weather?.hourly.time.indexOf(currentISODate)
   return (
     <>
       <div>
         <h1>Weather</h1>
-        {weather?.hourly.map((hourData: HourlyData, index: number) => (
-          <div key={index}>
-            <p>Time: {hourData.time}</p>
-            <p>Temperature: {hourData.temperature_2m}</p>
-            <p>Humidity: {hourData.relative_humidity_2m}</p>
-            <p>Rain: {hourData.rain}</p>
-            <p>Visibility: {hourData.visibility}</p>
-          </div>
-        ))}
+        <div>
+          <p>Temp: {weather?.current.temperature_2m}</p>
+          <p>Apparent Temp: {weather?.current.apparent_temperature}</p>
+          <p>Humidity: {weather?.current.relative_humidity_2m}</p>
+        </div>
       </div>
     </>
   )

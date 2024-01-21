@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import getWeatherData, { WeatherData, HourlyData } from '../apis/weatherApi.ts'
-
+import getWeatherData from '../apis/weatherApi.ts'
+import { WeatherData } from '../../models/Weather.ts'
 
 const Weather = () => {
   const [weather, setWeather] = useState<WeatherData | null>(null)
@@ -13,7 +13,7 @@ const Weather = () => {
   async function fetchWeather() {
     try {
       const weatherResponse = await getWeatherData()
-      console.log(weatherResponse, "here")
+      console.log(weatherResponse, 'here')
       setWeather(weatherResponse)
     } catch (error) {
       console.error(error, "Didn't get Weather")
@@ -30,18 +30,15 @@ const Weather = () => {
     return <p>Loading...</p>
   }
 
-  const currentDate = new Date()
-  const currentISODate = currentDate.toISOString()
-
-  //const currentIndex = weather?.hourly.time.indexOf(currentISODate)
   return (
     <>
       <div>
         <h1>Weather</h1>
         <div>
-          <p>Temp: {weather?.current.temperature_2m}</p>
-          <p>Apparent Temp: {weather?.current.apparent_temperature}</p>
-          <p>Humidity: {weather?.current.relative_humidity_2m}</p>
+          <p>Temp: {weather?.current.temperature_2m}°C</p>
+          <p>Apparent Temp: {weather?.current.apparent_temperature}°C</p>
+          <p>Humidity: {weather?.current.relative_humidity_2m}%</p>
+          <p>Pressure: {weather?.current.pressure_msl} hPa</p>
         </div>
       </div>
     </>

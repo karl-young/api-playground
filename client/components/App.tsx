@@ -63,6 +63,51 @@ function App() {
               </div>
             </div>
           </label>
+          <input
+            type="radio"
+            id="c4"
+            name="slide"
+            checked={isChecked}
+            onChange={() => handleChange()}
+          />
+          <label htmlFor="c4" className="card">
+            <div className="row">
+              <div className="icon">4</div>
+              <div className="discription">
+                <h1>other stuff</h1>
+              </div>
+            </div>
+          </label>
+          <input
+            type="radio"
+            id="c5"
+            name="slide"
+            checked={isChecked}
+            onChange={() => handleChange()}
+          />
+          <label htmlFor="c5" className="card">
+            <div className="row">
+              <div className="icon">5</div>
+              <div className="discription">
+                <h1>other stuff</h1>
+              </div>
+            </div>
+          </label>
+          <input
+            type="radio"
+            id="c6"
+            name="slide"
+            checked={isChecked}
+            onChange={() => handleChange()}
+          />
+          <label htmlFor="c6" className="card">
+            <div className="row">
+              <div className="icon">6</div>
+              <div className="discription">
+                <h1>other stuff</h1>
+              </div>
+            </div>
+          </label>
         </div>
       </div>
       <Canvas2 />

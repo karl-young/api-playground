@@ -132,5 +132,13 @@ input:checked + label .discription {
 }
 
 .card[for='c4'] {
-  background-image: url('../public/images/winter.jpg');
+  background-image: url('../public/images/waterfall.jpg');
+}
+
+.card[for='c5'] {
+  background-image: url('../public/images/lavafall.jpg');
+}
+
+.card[for='c6'] {
+  background-image: url('../public/images/Castlegreen.jpg');
 }

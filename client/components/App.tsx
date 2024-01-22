@@ -8,10 +8,14 @@ function App() {
       <section>
         <div>
           <Welcome />
+        </div>
+        <div>
           <Weather />
         </div>
         <div>
           <Affirmations />
+          
+          <h1>other stuff</h1>
         </div>
       </section>
     </>

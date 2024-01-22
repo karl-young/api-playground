@@ -15,7 +15,7 @@
   color: rgb(0, 0, 0);
   padding: 20px;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 20px;
   width: 800px;
 }
 
@@ -59,13 +59,14 @@
 }
 
 .card > .row {
-  color: rgb(8, 8, 8);
+  color: #202121;
   display: flex;
   flex-wrap: nowrap;
 }
 
 .card > .row > .icon {
-  background: rgb(36, 36, 98);
+  background: rgb(29, 29, 32);
+
   color: white;
   border-radius: 50%;
   height: 50px;

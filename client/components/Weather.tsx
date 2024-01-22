@@ -13,7 +13,6 @@ const Weather = () => {
   async function fetchWeather() {
     try {
       const weatherResponse = await getWeatherData()
-      console.log(weatherResponse, 'here')
       setWeather(weatherResponse)
     } catch (error) {
       console.error(error, "Didn't get Weather")
@@ -32,14 +31,12 @@ const Weather = () => {
 
   return (
     <>
-      <div>
+      <div className="discription">
         <h1>Weather</h1>
-        <div>
-          <p>Temp: {weather?.current.temperature_2m}°C</p>
-          <p>Apparent Temp: {weather?.current.apparent_temperature}°C</p>
-          <p>Humidity: {weather?.current.relative_humidity_2m}%</p>
-          <p>Pressure: {weather?.current.pressure_msl} hPa</p>
-        </div>
+        <h3>Temp: {weather?.current.temperature_2m}°C</h3>
+        <h3>Apparent Temp: {weather?.current.apparent_temperature}°C</h3>
+        <h3>Humidity: {weather?.current.relative_humidity_2m}%</h3>
+        <h3>Pressure: {weather?.current.pressure_msl} hPa</h3>
       </div>
     </>
   )

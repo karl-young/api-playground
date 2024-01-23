@@ -15,11 +15,17 @@ server.use(express.json())
 server.use(express.static(join(__dirname, './public')))
 
 server.use('/api/v1/welcome', welcome)
-server.get("/api/v1/affirmations",async (req, res) => {
-  const response = await request.get(
-    `https://www.affirmations.dev`
-    )
-    res.json(response.body)
+server.get('/api/v1/affirmations', async (req, res) => {
+  const response = await request.get(`https://www.affirmations.dev`)
+  res.json(response.body)
 })
+
+if (process.env.NODE_ENV === 'production') {
+  server.use(express.static(Path.resolve('public')))
+  server.use('/assets', express.static(Path.resolve('./dist/assets')))
+  server.get('*', (req, res) => {
+    res.sendFile(Path.resolve('./dist/index.html'))
+  })
+}
 
 export default server

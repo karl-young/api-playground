@@ -1,6 +1,5 @@
 import express from 'express'
 import request from 'superagent'
-import * as dotenv from 'dotenv'
 import crypto from 'crypto'
 import { getRandomInt } from '../lib.ts'
 

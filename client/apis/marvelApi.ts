@@ -5,6 +5,6 @@ const serverURL = '/api/v1'
 
 export async function getComics(): Promise<Result[]> {
   const response = await request.get(`${serverURL}/comics`)
-  const jsonINfo = JSON.parse(response.body.text)
+  const jsonINfo = JSON.parse(response.body)
   return jsonINfo.data.results
 }

@@ -77,7 +77,7 @@
   margin: 15px;
 }
 
-.card > .row > .discription {
+.card > .row > .description {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -90,18 +90,18 @@
   transition: all 0.3s ease;
 }
 
-.discription p {
+.description p {
   color: #000000;
   padding-top: 10px;
 }
 
-.discription h1 {
+.description h1 {
   padding-top: 10px;
   color: #000000;
   text-transform: uppercase;
 }
 
-.discription h3 {
+.description h3 {
   color: #000000;
   padding-top: 5px;
 }
@@ -114,31 +114,31 @@ input:checked + label {
   width: 600px;
 }
 
-input:checked + label .discription {
+input:checked + label .description {
   opacity: 1 !important;
   transform: translateY(0) !important;
 }
 
 .card[for='c1'] {
-  background-image: url('../public/images/summer.jpg');
+  background-image: url('../images/summer.jpg');
 }
 
 .card[for='c2'] {
-  background-image: url('../public/images/autum.jpg');
+  background-image: url('../images/autum.jpg');
 }
 
 .card[for='c3'] {
-  background-image: url('../public/images/spring.jpg');
+  background-image: url('../images/spring.jpg');
 }
 
 .card[for='c4'] {
-  background-image: url('../public/images/waterfall.jpg');
+  background-image: url('../images/waterfall.jpg');
 }
 
 .card[for='c5'] {
-  background-image: url('../public/images/lavafall.jpg');
+  background-image: url('../images/lavafall.jpg');
 }
 
 .card[for='c6'] {
-  background-image: url('../public/images/Castlegreen.jpg');
+  background-image: url('../images/Castlegreen.jpg');
 }

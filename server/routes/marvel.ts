@@ -10,6 +10,7 @@ const privateKey = process.env.API_ACCESS_KEY
 const publicKey = `61512a89c9dd5233c2e86896d99e2f94`
 const apiUrl = 'https://gateway.marvel.com/v1/public/comics'
 console.log("before route")
+
 // Get /api/v1/comics
 router.get('/', async (req, res) => {
   console.log("Requesting data before try")
@@ -17,7 +18,6 @@ router.get('/', async (req, res) => {
     console.log("Requesting data from Marvel's API")
     if (privateKey) {
       const ts = req.query.ts
-
       const hash = req.query.hash
       const apikey = req.query.apikey
       console.log('Received ts:', ts)

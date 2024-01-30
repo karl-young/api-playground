@@ -4,7 +4,7 @@ import Affirmations from './Affirmations.tsx'
 import Weather from './Weather.tsx'
 import Welcome from './Welcome.tsx'
 import Canvas2 from './Canvas.tsx'
-import Player from './Player.tsx'
+import Player from './Player.jsx'
 
 function App() {
   const [isChecked, setIsChecked] = useState(true)

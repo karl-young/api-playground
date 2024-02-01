@@ -4,7 +4,7 @@ import Affirmations from './Affirmations.tsx'
 import Weather from './Weather.tsx'
 import Welcome from './Welcome.tsx'
 import Canvas2 from './Canvas.tsx'
-import Player from './Player.jsx'
+import AudioPlayer from './Player.jsx'
 
 function App() {
   const [isChecked, setIsChecked] = useState(true)
@@ -60,7 +60,7 @@ function App() {
             <div className="row">
               <div className="icon">3</div>
               <div className="description">
-                <Player />
+                <AudioPlayer />
               </div>
             </div>
           </label>
@@ -112,6 +112,7 @@ function App() {
         </div>
       </div>
       <Canvas2 />
+      <div></div>
     </>
   )
 }

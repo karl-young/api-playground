@@ -31,7 +31,7 @@ const Weather = () => {
 
   return (
     <>
-      <div className="discription">
+      <div className="description">
         <h1>Weather</h1>
         <h3>Temp: {weather?.current.temperature_2m}°C</h3>
         <h3>Apparent Temp: {weather?.current.apparent_temperature}°C</h3>

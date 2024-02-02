@@ -46,6 +46,7 @@ const Comic = () => {
                 <p key={index}>{textObject.text}</p>
               ))}
             <img
+            className='comic-img'
               src={`${currentComic.thumbnail.path}.${currentComic.thumbnail.extension}`}
               alt={currentComic.title}
             />

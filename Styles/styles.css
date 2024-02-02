@@ -19,6 +19,25 @@
   width: 800px;
 }
 
+.comic {
+  display: flex;
+  flex-direction: column;
+  max-height: 800px;
+  overflow-y: auto;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.comic-img {
+  max-width: 100%;
+  height: 800px;
+  object-fit: cover;
+}
+
+.comic .content {
+  padding: 10px;
+}
+
 .canvas {
   position: fixed;
   top: 0;
@@ -79,13 +98,18 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto;
   min-height: 80px;
   width: 520px;
   opacity: 0;
   transform: translateY(30px);
   transition-delay: 0.3s;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.3s ease;
+}
+
+.card[for='c4'] .discription {
+  max-height: 500px; /* Adjust the maximum height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .discription p {

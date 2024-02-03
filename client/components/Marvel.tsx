@@ -35,30 +35,34 @@ const Comic = () => {
   console.log('currentComic:', currentComic)
   return (
     <>
-      <div>
-        <h1>Marvel Comic</h1>
+      <div className="comics">
+        
         {currentComic && (
-          <div className="comics">
-            <h2>{currentComic.title}</h2>
+          <div>
+            <h2 className="text">{currentComic.title}</h2>
             {/* Displaying textObjects */}
             {currentComic.textObjects &&
               currentComic.textObjects.map((textObject, index) => (
-                <p key={index}>{textObject.text}</p>
+                <p className="text" key={index}>
+                  {textObject.text} {''}
+                  
+                </p>
               ))}
+              <div>
+              <button className='button'
+                    onClick={nextComic}
+                    disabled={currentIndex === (comics?.length ?? 0) - 1}
+                  >
+                    Next Comic
+                  </button>
+              </div>
             <img
-            className='comic-img'
+              className="comic-img"
               src={`${currentComic.thumbnail.path}.${currentComic.thumbnail.extension}`}
               alt={currentComic.title}
             />
           </div>
         )}
-
-        <button
-          onClick={nextComic}
-          disabled={currentIndex === (comics?.length ?? 0) - 1}
-        >
-          Next Comic
-        </button>
       </div>
     </>
   )

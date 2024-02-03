@@ -33,10 +33,10 @@ const Weather = () => {
     <>
       <div className="discription">
         <h1>Weather</h1>
-        <h3>Temp: {weather?.current.temperature_2m}°C</h3>
-        <h3>Apparent Temp: {weather?.current.apparent_temperature}°C</h3>
-        <h3>Humidity: {weather?.current.relative_humidity_2m}%</h3>
-        <h3>Pressure: {weather?.current.pressure_msl} hPa</h3>
+        <h2>Temp: {weather?.current.temperature_2m}°C</h2>
+        <h2>Apparent Temp: {weather?.current.apparent_temperature}°C</h2>
+        <h2>Humidity: {weather?.current.relative_humidity_2m}%</h2>
+        <h2>Pressure: {weather?.current.pressure_msl} hPa</h2>
       </div>
     </>
   )

@@ -5,8 +5,9 @@ import { Affirmation } from '../../models/Affrmations.ts'
 const serverURL = '/api/v1'
 
 
-export function getWelcome(): Promise<Welcome> {
-  return request.get(`${serverURL}/welcome`).then((response) => response.body)
+export async function getWelcome(): Promise<Welcome> {
+  const response = await request.get(`${serverURL}/welcome`)
+  return response.body
 }
 
 export async function getAffirmations(): Promise<Affirmation> {

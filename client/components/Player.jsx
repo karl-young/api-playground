@@ -70,6 +70,7 @@ function AudioPlayer() {
   return (
     <>
       <div className="audio">
+        <h1>Audio Player</h1>
         <input
           type="file"
           id="upload-file"

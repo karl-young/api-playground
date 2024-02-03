@@ -4,6 +4,7 @@ import Affirmations from './Affirmations.tsx'
 import Weather from './Weather.tsx'
 import Welcome from './Welcome.tsx'
 import Canvas2 from './Canvas.tsx'
+import AudioPlayer from './Player.jsx'
 import Comic from './Marvel.tsx'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
@@ -32,7 +33,7 @@ function App() {
             <label htmlFor="c1" className="card">
               <div className="row">
                 <div className="icon">1</div>
-                <div className="discription">
+                <div className="description">
                   <Weather />
                 </div>
               </div>
@@ -47,7 +48,7 @@ function App() {
             <label htmlFor="c2" className="card">
               <div className="row">
                 <div className="icon">2</div>
-                <div className="discription">
+                <div className="description">
                   <Affirmations />
                 </div>
               </div>
@@ -62,8 +63,8 @@ function App() {
             <label htmlFor="c3" className="card">
               <div className="row">
                 <div className="icon">3</div>
-                <div className="discription">
-                  <h1>other stuff</h1>
+                <div className="description">
+                  <AudioPlayer />
                 </div>
               </div>
             </label>
@@ -77,7 +78,7 @@ function App() {
             <label htmlFor="c4" className="card">
               <div className="row">
                 <div className="icon">4</div>
-                <div className="discription">
+                <div className="description">
                   <Comic />
                 </div>
               </div>
@@ -92,7 +93,7 @@ function App() {
             <label htmlFor="c5" className="card">
               <div className="row">
                 <div className="icon">5</div>
-                <div className="discription">
+                <div className="description">
                   <h1>other stuff</h1>
                 </div>
               </div>
@@ -107,7 +108,7 @@ function App() {
             <label htmlFor="c6" className="card">
               <div className="row">
                 <div className="icon">6</div>
-                <div className="discription">
+                <div className="description">
                   <h1>other stuff</h1>
                 </div>
               </div>
@@ -115,7 +116,8 @@ function App() {
           </div>
         </div>
         <Canvas2 />
-      </>
+        <div></div>
+    </>
     </QueryClientProvider>
   )
 }

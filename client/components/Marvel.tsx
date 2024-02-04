@@ -22,7 +22,7 @@ const Comic = () => {
   }
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
   }
 
   if (error instanceof Error) {
@@ -30,13 +30,10 @@ const Comic = () => {
   }
 
   const currentComic = comics ? comics[currentIndex] : null
-  console.log('currentIndex:', currentIndex)
-  console.log('comics:', comics)
-  console.log('currentComic:', currentComic)
+
   return (
     <>
       <div className="comics">
-        
         {currentComic && (
           <div>
             <h2 className="text">{currentComic.title}</h2>
@@ -45,17 +42,17 @@ const Comic = () => {
               currentComic.textObjects.map((textObject, index) => (
                 <p className="text" key={index}>
                   {textObject.text} {''}
-                  
                 </p>
               ))}
-              <div>
-              <button className='button'
-                    onClick={nextComic}
-                    disabled={currentIndex === (comics?.length ?? 0) - 1}
-                  >
-                    Next Comic
-                  </button>
-              </div>
+            <div>
+              <button
+                className="button"
+                onClick={nextComic}
+                disabled={currentIndex === (comics?.length ?? 0) - 1}
+              >
+                Next Comic
+              </button>
+            </div>
             <img
               className="comic-img"
               src={`${currentComic.thumbnail.path}.${currentComic.thumbnail.extension}`}

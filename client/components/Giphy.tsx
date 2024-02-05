@@ -1,47 +1,41 @@
-import { useQuery } from "react-query"
-import { getTrendingGifs } from "../apis/giphyApi.ts"
-import { useState } from "react"
-import { Datum } from "../../models/Giphy.ts"
-const Giphy = () => {
-  const [currentIndex, setCurrentIndex] = useState(0)
+// src/components/GiphyTrending.tsx
+import { useEffect, useState } from 'react'
+import { getTrendingGifs } from '../apis/giphyApi.ts'
 
-  const {
-    data: gifs,
-    error,
-    isLoading,
-  } = useQuery<Datum[], Error>('trendingGifs', getTrendingGifs, {
-    staleTime: Infinity
-  });
-  const nextGif = () => {
-    if (gifs && currentIndex < gifs.length - 1) {
-      setCurrentIndex((prevIndex) => prevIndex + 1)
+const GiphyTrending = () => {
+  const [trendingGifs, setTrendingGifs] = useState([])
+
+  useEffect(() => {
+    const fetchTrendingGifs = async () => {
+      const apiKey = process.env.REACT_APP_GIPHY_API_KEY
+      if (!apiKey) {
+        console.error('Giphy API key is missing.')
+        return
+      }
+
+      try {
+        const gifs = await getTrendingGifs(apiKey)
+        setTrendingGifs(gifs)
+      } catch (error: any) {
+        console.error('Error fetching trending gifs:', error.message)
+      }
     }
-  }
 
-  if(isLoading) {
-    return <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
-  }
-
-  if(error instanceof Error) {
-    return <p>Error: {error.message}</p>
-  }
-
-  const currentGif = gifs ? gifs[currentIndex] : null
+    fetchTrendingGifs()
+  }, [])
 
   return (
-    <>
-      <div>
-        <h1>Giphy</h1>
-        {currentGif && (
-          <div className="gifs">
-            <h2>{currentGif.title}</h2>
-            <img src={currentGif.images.original.url} alt={currentGif.title} />
-            <button onClick={nextGif}>Next</button>
-          </div>
-        )}
-      </div>
-    </>
+    <div>
+      <h2>Trending GIFs</h2>
+      <ul>
+        {trendingGifs.map((gif) => (
+          <li key={gif.id}>
+            <img src={gif.images.fixed_height.url} alt={gif.title} />
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
-export default Giphy
+export default GiphyTrending

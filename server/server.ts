@@ -6,7 +6,7 @@ import request from 'superagent'
 
 import welcomeRouter from './routes/welcome.ts'
 import comicsRouter from './routes/marvel.ts'
-import gifRouter from './routes/giphy.ts'
+
 const __filename = URL.fileURLToPath(import.meta.url)
 const __dirname = Path.dirname(__filename)
 
@@ -16,7 +16,6 @@ server.use(express.json())
 server.use(express.static(join(__dirname, './public')))
 
 server.use('/api/v1/comics', comicsRouter)
-server.use('/api/v1/trending', gifRouter)
 server.use('/api/v1/welcome', welcomeRouter)
 server.get('/api/v1/affirmations', async (req, res) => {
   try {

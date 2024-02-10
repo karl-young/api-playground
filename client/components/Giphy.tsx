@@ -1,28 +1,19 @@
 // src/components/GiphyTrending.tsx
-import { useEffect, useState } from 'react'
-import { getTrendingGifs } from '../apis/giphyApi.ts'
+import { useQuery } from 'react-query';
+import { getTrendingGifs } from '../apis/giphyApi.ts';
 
 const GiphyTrending = () => {
-  const [trendingGifs, setTrendingGifs] = useState([])
-
-  useEffect(() => {
-    const fetchTrendingGifs = async () => {
-      const apiKey = process.env.REACT_APP_GIPHY_API_KEY
-      if (!apiKey) {
-        console.error('Giphy API key is missing.')
-        return
-      }
-
-      try {
-        const gifs = await getTrendingGifs(apiKey)
-        setTrendingGifs(gifs)
-      } catch (error: any) {
-        console.error('Error fetching trending gifs:', error.message)
-      }
+  const { data: trendingGifs, error, isLoading } = useQuery('trendingGifs', async () => {
+    const apiKey = "JLPu1k00txtFjXCrqZzSBuGW7mtfiJnk";
+    if (!apiKey) {
+      throw new Error('Giphy API key is missing.');
     }
 
-    fetchTrendingGifs()
-  }, [])
+    return await getTrendingGifs(apiKey);
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div>
@@ -35,7 +26,7 @@ const GiphyTrending = () => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default GiphyTrending
+export default GiphyTrending;

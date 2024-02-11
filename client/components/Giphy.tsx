@@ -41,6 +41,7 @@ const GiphySearch = () => {
   return (
     <>
       <div >
+      <div><p className='powered'>Powered By GIPHY</p></div>
         <h1 className="title">Giphy Search</h1>
         <form onSubmit={handleSubmit}>
           <fieldset>
@@ -56,12 +57,12 @@ const GiphySearch = () => {
         <ul>
           {searchResults?.map((gif) => (
             <li key={gif.id}>
-              <img src={gif.images.fixed_height.url} alt={gif.title} />
+              <img className='gif' src={gif.images.fixed_height.url} alt={gif.title} />
             </li>
           ))}
         </ul>
       </div>
-      <div><p className='powered'>Powered By GIPHY</p></div>
+      
     </>
   )
 }

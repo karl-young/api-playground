@@ -156,7 +156,7 @@
 }
 
 .card > .row > .description ul {
-  max-height: 400px; /* Adjust the max height as needed */
+  max-height: 300px; /* Set a maximum height for the list */
   overflow-y: auto; /* Enable vertical scrolling */
 }
 
@@ -254,11 +254,17 @@ fieldset {
 
 .powered {
   position: absolute;
-  bottom: 10px;
+  top: 10px;
   right: 10px;
   color: white;
   background-color: #202121;
   border-radius: 5px;
   padding: 0.5rem;
   font-size: 0.8rem;
+}
+
+.gif {
+  display: flex;
+  margin: auto;
+  padding: 5px;
 }

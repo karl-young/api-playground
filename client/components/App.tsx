@@ -7,7 +7,7 @@ import Welcome from './Welcome.tsx'
 import Canvas2 from './Canvas.tsx'
 import AudioPlayer from './Player.jsx'
 import Comic from './Marvel.tsx'
-import GiphyTrending from './Giphy.tsx'
+import GiphySearch from './Giphy.tsx'
 
 const queryClient = new QueryClient()
 function App() {
@@ -95,7 +95,7 @@ function App() {
               <div className="row">
                 <div className="icon">5</div>
                 <div className="description">
-                  <GiphyTrending />
+                  <GiphySearch />
                 </div>
               </div>
             </label>

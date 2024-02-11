@@ -21,9 +21,8 @@ export interface Datum {
   source_post_url:            string;
   is_sticker:                 number;
   import_datetime:            Date;
-  trending_datetime:          string;
+  trending_datetime:          Date;
   images:                     Images;
-  user?:                      User;
   analytics_response_payload: string;
   analytics:                  Analytics;
 }
@@ -59,19 +58,6 @@ export interface FixedHeight {
   webp:      string;
   frames?:   string;
   hash?:     string;
-}
-
-export interface User {
-  avatar_url:    string;
-  banner_image:  string;
-  banner_url:    string;
-  profile_url:   string;
-  username:      string;
-  display_name:  string;
-  description:   string;
-  instagram_url: string;
-  website_url:   string;
-  is_verified:   boolean;
 }
 
 export interface Meta {

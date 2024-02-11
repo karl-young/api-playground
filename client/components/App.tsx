@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import Affirmations from './Affirmations.tsx'
 import Weather from './Weather.tsx'
 import Welcome from './Welcome.tsx'
 import Canvas2 from './Canvas.tsx'
 import AudioPlayer from './Player.jsx'
 import Comic from './Marvel.tsx'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import GiphySearch from './Giphy.tsx'
 
 const queryClient = new QueryClient()
 function App() {
@@ -94,7 +95,7 @@ function App() {
               <div className="row">
                 <div className="icon">5</div>
                 <div className="description">
-                  <h1>other stuff</h1>
+                  <GiphySearch />
                 </div>
               </div>
             </label>
@@ -117,7 +118,7 @@ function App() {
         </div>
         <Canvas2 />
         <div></div>
-    </>
+      </>
     </QueryClientProvider>
   )
 }

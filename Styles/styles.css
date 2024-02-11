@@ -68,6 +68,7 @@
   margin: 5px;
   margin-top: 10px;
   color: white;
+  overflow-y: auto;
 }
 
 .comic-img {
@@ -115,8 +116,6 @@
   width: 80px;
   background-size: cover;
   cursor: pointer;
-  overflow-y: auto;
-  overflow-x: hidden;
   border-radius: 2rem;
   margin: 10px;
   display: flex;

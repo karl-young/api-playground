@@ -8,6 +8,7 @@ import Canvas2 from './Canvas.tsx'
 import AudioPlayer from './Player.jsx'
 import Comic from './Marvel.tsx'
 import GiphySearch from './Giphy.tsx'
+import StarSearch from './StarSearch.tsx'
 
 const queryClient = new QueryClient()
 function App() {
@@ -110,7 +111,7 @@ function App() {
               <div className="row">
                 <div className="icon">6</div>
                 <div className="description">
-                  <h1>other stuff</h1>
+                  <StarSearch />
                 </div>
               </div>
             </label>

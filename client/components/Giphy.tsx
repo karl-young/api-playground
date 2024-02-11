@@ -57,7 +57,7 @@ const GiphySearch = () => {
         <ul>
           {searchResults?.map((gif) => (
             <li key={gif.id}>
-              <img className='gif' src={gif.images.fixed_height.url} alt={gif.title} />
+              <img className='content' src={gif.images.fixed_height.url} alt={gif.title} />
             </li>
           ))}
         </ul>

@@ -212,12 +212,12 @@ input:checked + label .description {
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #202121;
+  background: #0074b3;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0074b3;
+  background: #029ff3;
 }
 
 input[type="text"] {
@@ -280,7 +280,9 @@ fieldset {
 }
 
 .star-result {
-  display: block;
+  
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   margin: auto;
   padding: 10px;
@@ -290,4 +292,5 @@ fieldset {
   color: white;
   border-radius: 5px;
   min-width: 300px;
+  overflow: auto;
 }

@@ -18,7 +18,7 @@ const StarSearch = () => {
     data: searchResults,
     error,
     isLoading,
-  } = useQuery(['searchStarWars', query, selection], async () => {
+  } = useQuery(['searchStarWars', selection], async () => {
     if (!query.trim()) {
       return []
     }
@@ -26,9 +26,7 @@ const StarSearch = () => {
       return await searchStarWars(query, selection)
     } catch (error) {
       if (error instanceof Error) {
-        throw new Error(error.message)
-      } else {
-        throw new Error('Something went wrong Api call')
+        console.error(error.message, "Didn't get Search")
       }
     }
   })
@@ -48,6 +46,9 @@ const StarSearch = () => {
     return <p>Error: {error.message}</p>
   }
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+  }
   const getResourceInfo = (
     result: Person | Film | Starship | Vehicle | Species | Planet
   ) => {
@@ -63,7 +64,7 @@ const StarSearch = () => {
   return (
     <div>
       <h1>Star Wars Search</h1>
-      <form id="search-form">
+      <form id="search-form" onSubmit={handleSubmit}>
         <input
           type="text"
           value={query}

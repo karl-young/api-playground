@@ -1,6 +1,8 @@
-# External APIs - Choose your own adventure!
+# APIs Playground 
 
-This exercise is about exploring the world of APIs available to us.
+This exercise is a boilerplate forked from Dev Academy to play around with APi's and how they work. You can find the original repo [here](https://github.com/manaia-2023/consuming-external-apis).
+
+## Summary
 
 In addition to hitting our own APIs with JavaScript, we can also make use of APIs exposed from all around the Internet! As to how the API works (and what routes are exposed to us) depends on how it was coded by the developer or team of developers who created it, part of learning how to use external APIs is also about learning how to read their documentation.
 

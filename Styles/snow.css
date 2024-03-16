@@ -1,0 +1,49 @@
+.button-container {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.snowflake-container {
+  display: flex;
+  align-items: center;
+}
+
+.snowflake {
+  width: 40px;
+  height: 40px;
+  background-image: url('../images/snowflake-png-transparent-17.png');
+  background-size: cover;
+}
+
+.spin-animation {
+  animation: spin 4s linear infinite;
+  animation-iteration-count: 1;
+}
+
+.brackets {
+  font-size: 20px;
+  color: gray;
+  margin: 0 5px; /* Adjust margin for brackets */
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.absolute-bg {
+  position: absolute;
+  height: 100vh;
+  background-color: #202121;
+  width: 100%;
+  z-index: 5;
+}

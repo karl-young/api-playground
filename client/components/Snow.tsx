@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 class Circle {
   x: number
@@ -32,37 +32,34 @@ class Circle {
     context.closePath() // Closes the path
   }
 
-  update() {
-    if (this.x + this.radius > window.innerWidth || this.x - this.radius < 0) {
-      this.dx = -this.dx
-    }
-    if (this.y + this.radius > window.innerHeight || this.y - this.radius < 0) {
-      this.dy = -this.dy
-    }
-    const maxSpeed = 1 // Set the maximum speed
-    if (Math.abs(this.dx) > maxSpeed) {
-      this.dx = Math.sign(this.dx) * maxSpeed
-    }
-    if (Math.abs(this.dy) > maxSpeed) {
-      this.dy = Math.sign(this.dy) * maxSpeed
+  update(canvasWidth: number, canvasHeight: number, addGravity: boolean) {
+    if (addGravity) {
+      // Add gravity effect
+      this.dy += 0.01 // Adjust the value to control the strength of gravity
     }
 
     this.x += this.dx
     this.y += this.dy
+
+    // Respawn at the top when snowflake reaches the bottom
+    if (this.y > canvasHeight + this.radius) {
+      this.x = Math.random() * canvasWidth
+      this.y = -this.radius
+      this.dy = Math.random() * 2 + 1 // Reset the vertical velocity
+    }
   }
 }
 
-const Canvas = () => {
+const Snow = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const circleArrayRef = useRef<Circle[]>([])
   const colors = ['#272932', '#1c7293', '#5b70f3', '#a4fbe3'] // The list of colors
 
+  const [addGravity, setAddGravity] = useState(false)
+
   const resizeCanvas = () => {
     const canvas = canvasRef.current
-    if (!canvas) {
-      console.log('Not Canvas')
-      return
-    }
+    if (!canvas) return
     canvas.width = window.innerWidth // set width
     canvas.height = window.innerHeight // set height
     init()
@@ -71,31 +68,27 @@ const Canvas = () => {
   const animate = () => {
     requestAnimationFrame(animate)
     const canvas = canvasRef.current
-    if (!canvas) {
-      console.log('Not Canvas')
-      return
-    }
+    if (!canvas) return
     const context = canvas.getContext('2d')
-    if (!context) {
-      console.log('No Context 2d')
-      return
-    }
+    if (!context) return
     context.clearRect(0, 0, window.innerWidth, window.innerHeight) // clear
     for (let i = 0; i < circleArrayRef.current.length; i++) {
       const circle = circleArrayRef.current[i]
-      circle.update() // update
+      circle.update(canvas.width, canvas.height, addGravity) // update
       circle.draw(context) // draw
     }
   }
 
   const init = () => {
     circleArrayRef.current = []
-    for (let i = 0; i < 100; i++) { // Adds up to this ammount
-      const radius = Math.random() * 1 + 1 // set radius
-      const x = Math.random() * (window.innerWidth - radius * 2) + radius // set position
-      const y = Math.random() * (window.innerHeight - radius * 2) + radius
-      const dx = (Math.random() - 0.5) * 0.3 // set speed
-      const dy = (Math.random() - 0.5) * 0.3 // set speed
+    const canvas = canvasRef.current
+    if (!canvas) return
+    for (let i = 0; i < 100; i++) {
+      const radius = Math.random() * 2 + 1 // set radius
+      const x = Math.random() * canvas.width // set position
+      const y = Math.random() * canvas.height
+      const dx = (Math.random() - 0.5) * 0.5 // set horizontal velocity
+      const dy = Math.random() * 2 + 1 // set vertical velocity
       const color = colors[Math.floor(Math.random() * colors.length)] // set color
       const circle = new Circle(x, y, radius, dx, dy, color) // create new circle
       circleArrayRef.current.push(circle) // push new circle
@@ -116,21 +109,29 @@ const Canvas = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current
-    if (!canvas) {
-      console.log('Not Canvas')
-      return
-    }
+    if (!canvas) return
 
     const context = canvas.getContext('2d')
-    if (!context) {
-      console.log('No Context 2d')
-      return
-    }
+    if (!context) return
 
     animate()
   }, [])
 
-  return <canvas id="canvas" ref={canvasRef} className="canvas" />
+  const handleCanvasClick = () => {
+    setAddGravity(true)
+    setTimeout(() => {
+      setAddGravity(false)
+    }, 3000) // Adjust the duration of gravity effect
+  }
+
+  return (
+    <canvas
+      id="canvas"
+      ref={canvasRef}
+      className="absolute-bg"
+      onClick={handleCanvasClick}
+    />
+  )
 }
 
-export default Canvas
+export default Snow

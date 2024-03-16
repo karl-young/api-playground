@@ -4,22 +4,40 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import Affirmations from './Affirmations.tsx'
 import Weather from './Weather.tsx'
 import Welcome from './Welcome.tsx'
-import Canvas2 from './Canvas.tsx'
+import Canvas from './Canvas.tsx'
 import AudioPlayer from './Player.jsx'
 import Comic from './Marvel.tsx'
 import GiphySearch from './Giphy.tsx'
 import StarSearch from './StarSearch.tsx'
+import Snow from './Snow.tsx'
 
 const queryClient = new QueryClient()
 function App() {
   const [isChecked, setIsChecked] = useState(true)
+  const [showCanvas, setShowCanvas] = useState(true)
 
   function handleChange() {
     setIsChecked(!isChecked)
   }
+  const toggleCanvas = () => {
+    setShowCanvas(!showCanvas)
+  }
   return (
     <QueryClientProvider client={queryClient}>
       <>
+        {showCanvas ? <Canvas /> : <Snow />}
+        <div className="button-container">
+          <button
+            className={`button ${showCanvas ? '' : 'spin-animation'}`}
+            onClick={toggleCanvas}
+          >
+            <div className="snowflake-container">
+              <div className="brackets">{'<\u00A0'}</div>
+              <div className="snowflake" />
+              <div className="brackets">{`\u00A0>`}</div>
+            </div>
+          </button>
+        </div>
         <div className="welcome">
           <Welcome />
         </div>
@@ -117,8 +135,7 @@ function App() {
             </label>
           </div>
         </div>
-        <Canvas2 />
-        <div></div>
+        <Canvas />
       </>
     </QueryClientProvider>
   )

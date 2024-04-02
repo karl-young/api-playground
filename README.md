@@ -24,7 +24,7 @@ Feel free to explore each card to learn more about how these APIs can be utilize
 
 ## Demo
 
-
+  Click me!
   [![Api-Playground Video](images/Api-playground.jpg)](https://www.youtube.com/watch?v=rCjzP6gWvR4)
 
 <div style="text-align:center;"><h2>Thank you!</h2></div>

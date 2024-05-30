@@ -10,7 +10,7 @@ Welcome to Api-Playground! This repository serves as a playground for experiment
 
 1. **Open-Meteo Weather API:** Get real-time weather updates for Dunedin, Otago, using the Open-Meteo API.
 
-2. **Afformations API:** Explore affirmations and positive messages using the Afformations API.
+2. **Affirmations API:** Explore affirmations and positive messages using the Affirmations API.
 
 3. **Audio Player with Visualization:** Experience an interactive audio player with colorful visualization. Upload your own WAV files to customize your music experience.
 

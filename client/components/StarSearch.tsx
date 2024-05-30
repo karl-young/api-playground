@@ -99,7 +99,6 @@ const StarSearch = () => {
               (result: Person | Film | Starship | Vehicle | Species | Planet) => (
                 <li className="star-result" key={result.url}>
                   <pre>{getResourceInfo(result)}</pre>
-                  {/* Add a link to a detailed view */}
                   <a href={`/details/${result.url}`}>View Details</a>
                 </li>
               )

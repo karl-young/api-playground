@@ -5,7 +5,6 @@ import { Result } from '../../models/Comic.ts'
 
 const Comic = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  // Inside the Comic component
 
   const {
     data: comics,
@@ -44,7 +43,6 @@ const Comic = () => {
         {currentComic && (
           <div>
             <h2 className="text">{currentComic.title}</h2>
-            {/* Displaying textObjects */}
             {currentComic.textObjects &&
               currentComic.textObjects.map((textObject, index) => (
                 <p className="text" key={index}>

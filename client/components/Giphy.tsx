@@ -36,7 +36,10 @@ const GiphySearch = () => {
       </div>
     )
   }
-  if (error instanceof Error) return <div>Error: {error.message}</div>
+  if (error instanceof Error) 
+    return (
+    <div>Error: {error.message}</div>
+  )
 
   return (
     <>

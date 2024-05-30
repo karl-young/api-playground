@@ -156,8 +156,8 @@
 }
 
 .card > .row > .description ul {
-  max-height: 300px; /* Set a maximum height for the list */
-  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 300px; 
+  overflow-y: auto; 
 }
 
 .description h1 {

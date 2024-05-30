@@ -31,7 +31,7 @@
 .brackets {
   font-size: 20px;
   color: gray;
-  margin: 0 5px; /* Adjust margin for brackets */
+  margin: 0 5px; 
 }
 
 @keyframes spin {

@@ -20,11 +20,11 @@ const GiphySearch = () => {
   })
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const queryValue = formData.get('search-gifs') as string;
-    setQuery(queryValue.trim());
-  };
+    event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const queryValue = formData.get('search-gifs') as string
+    setQuery(queryValue.trim())
+  }
 
   if (isLoading) {
     return (
@@ -40,8 +40,14 @@ const GiphySearch = () => {
 
   return (
     <>
-      <div >
-      <div><p className='powered'>Powered By GIPHY</p></div>
+      <div>
+        <div>
+          <img
+            className="powered"
+            src="images/Poweredby_100px_Badge.gif"
+            alt="Powered by Giphy"
+          />
+        </div>
         <h1 className="title">Giphy Search</h1>
         <form onSubmit={handleSubmit}>
           <fieldset>
@@ -51,18 +57,21 @@ const GiphySearch = () => {
               defaultValue={query}
               placeholder="Enter search query..."
             />
-            <input type="submit" value='Submit' />
+            <input type="submit" value="Submit" />
           </fieldset>
         </form>
         <ul>
           {searchResults?.map((gif) => (
             <li key={gif.id}>
-              <img className='content' src={gif.images.fixed_height.url} alt={gif.title} />
+              <img
+                className="content"
+                src={gif.images.fixed_height.url}
+                alt={gif.title}
+              />
             </li>
           ))}
         </ul>
       </div>
-      
     </>
   )
 }

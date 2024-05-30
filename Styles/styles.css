@@ -187,7 +187,7 @@ input:checked + label .description {
 }
 
 .card[for='c3'] {
-  background-image: url('../images/spring.jpg');
+  background-image: url('../images/Moraine-Lake.jpg');
 }
 
 .card[for='c4'] {
@@ -195,7 +195,7 @@ input:checked + label .description {
 }
 
 .card[for='c5'] {
-  background-image: url('../images/lavafall.jpg');
+  background-image: url('../images/Monument_Valley_1920.jpg');
 }
 
 .card[for='c6'] {
@@ -220,7 +220,7 @@ input:checked + label .description {
   background: #029ff3;
 }
 
-input[type="text"] {
+input[type='text'] {
   display: block;
   width: 50%;
   margin: 1em auto;
@@ -271,6 +271,8 @@ fieldset {
   border-radius: 5px;
   padding: 0.5rem;
   font-size: 0.8rem;
+  width: 100px;
+  height: auto;
 }
 
 .content {
@@ -280,7 +282,6 @@ fieldset {
 }
 
 .star-result {
-  
   display: flex;
   flex-wrap: wrap;
   width: 100%;

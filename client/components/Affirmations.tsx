@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Affirmation } from '../../models/Affrmations.ts'
+import { Affirmation } from '../../models/Affirmations.ts'
 import { getAffirmations } from '../apis/apiClient.ts'
 
 const Affirmations = () => {

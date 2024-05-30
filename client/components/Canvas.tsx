@@ -72,7 +72,6 @@ const Canvas = () => {
     requestAnimationFrame(animate)
     const canvas = canvasRef.current
     if (!canvas) {
-      console.log('Not Canvas')
       return
     }
     const context = canvas.getContext('2d')
@@ -90,7 +89,8 @@ const Canvas = () => {
 
   const init = () => {
     circleArrayRef.current = []
-    for (let i = 0; i < 100; i++) { // Adds up to this ammount
+    for (let i = 0; i < 100; i++) {
+      // Adds up to this amount
       const radius = Math.random() * 1 + 1 // set radius
       const x = Math.random() * (window.innerWidth - radius * 2) + radius // set position
       const y = Math.random() * (window.innerHeight - radius * 2) + radius

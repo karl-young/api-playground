@@ -1,4 +1,3 @@
-import { join } from 'node:path'
 import express from 'express'
 import * as Path from 'node:path'
 import * as URL from 'node:url'
@@ -15,13 +14,20 @@ const server = express()
 
 server.use(cors())
 server.use(express.json())
-server.use(express.static(join(__dirname, './public')))
+
+// Serve static files from the 'dist' directory
+if (process.env.NODE_ENV === 'production') {
+  server.use(express.static(Path.resolve(__dirname, 'dist')))
+  server.get('*', (req, res) => {
+    res.sendFile(Path.resolve(__dirname, 'dist', 'index.html'))
+  })
+}
 
 server.use('/api/v1/comics', comicsRouter)
 server.use('/api/v1/welcome', welcomeRouter)
 server.get('/api/v1/affirmations', async (req, res) => {
   try {
-    const response = await request.get(`https://www.affirmations.dev`)
+    const response = await request.get('https://www.affirmations.dev')
     res.json(response.body)
   } catch (error) {
     if (error instanceof Error) {
@@ -30,13 +36,5 @@ server.get('/api/v1/affirmations', async (req, res) => {
     }
   }
 })
-
-if (process.env.NODE_ENV === 'production') {
-  server.use(express.static(Path.resolve('public')))
-  server.use('/assets', express.static(Path.resolve('./dist/assets')))
-  server.get('*', (req, res) => {
-    res.sendFile(Path.resolve('./dist/index.html'))
-  })
-}
 
 export default server

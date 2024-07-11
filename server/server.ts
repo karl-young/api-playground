@@ -15,7 +15,6 @@ const server = express()
 server.use(cors())
 server.use(express.json())
 
-// Serve static files from the 'dist' directory
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(Path.resolve(__dirname, 'dist')))
   server.get('*', (req, res) => {

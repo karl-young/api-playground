@@ -11,7 +11,7 @@ export async function getWelcome(): Promise<Welcome> {
 }
 
 export async function getAffirmations(): Promise<Affirmation> {
-  const response = await request.get(`/api/v1/affirmations`)
+  const response = await request.get(`${serverURL}/affirmations`)
   
   return response.body
 }

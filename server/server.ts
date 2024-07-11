@@ -3,6 +3,7 @@ import express from 'express'
 import * as Path from 'node:path'
 import * as URL from 'node:url'
 import request from 'superagent'
+import cors from 'cors'
 
 import welcomeRouter from './routes/welcome.ts'
 import comicsRouter from './routes/marvel.ts'
@@ -12,6 +13,7 @@ const __dirname = Path.dirname(__filename)
 
 const server = express()
 
+server.use(cors())
 server.use(express.json())
 server.use(express.static(join(__dirname, './public')))
 

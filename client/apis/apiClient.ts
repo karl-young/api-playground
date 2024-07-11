@@ -2,8 +2,7 @@ import request from 'superagent'
 import { Welcome } from '../../models/welcome.ts'
 import { Affirmation } from '../../models/Affirmations.ts'
 
-const serverURL = 'http://localhost:3000/api/v1'
-
+const serverURL = `${window.location.origin}/api/v1`
 
 export async function getWelcome(): Promise<Welcome> {
   const response = await request.get(`${serverURL}/welcome`)
@@ -12,6 +11,6 @@ export async function getWelcome(): Promise<Welcome> {
 
 export async function getAffirmations(): Promise<Affirmation> {
   const response = await request.get(`${serverURL}/affirmations`)
-  
+
   return response.body
 }

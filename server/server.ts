@@ -1,14 +1,10 @@
 import express from 'express'
 import * as Path from 'node:path'
-
 import request from 'superagent'
 import cors from 'cors'
 
 import welcomeRouter from './routes/welcome.ts'
 import comicsRouter from './routes/marvel.ts'
-
-
-
 
 const server = express()
 

@@ -15,14 +15,24 @@ const server = express()
 server.use(cors())
 server.use(express.json())
 
+// Serve static files based on the environment
 if (process.env.NODE_ENV === 'production') {
+  // Serve static files from 'dist' in production
   server.use(express.static(Path.resolve('./dist')))
   server.use('/assets', express.static(Path.resolve('./dist/assets')))
   server.get('*', (req, res) => {
     res.sendFile(Path.resolve('./dist/index.html'))
   })
 } else {
-  server.use(express.static(Path.join(__dirname, './public')))
+  // In development, also serve from 'dist' if you don't have 'public'
+  server.use(express.static(Path.join(__dirname, '../client')))
+  server.use(
+    '/assets',
+    express.static(Path.join(__dirname, '../client/assets'))
+  )
+  server.get('*', (req, res) => {
+    res.sendFile(Path.join(__dirname, '../client/index.html'))
+  })
 }
 
 server.use('/api/v1/comics', comicsRouter)

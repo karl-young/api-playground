@@ -47,7 +47,7 @@ const GiphySearch = () => {
         <div>
           <img
             className="powered"
-            src="images/Poweredby_100px_Badge.gif"
+            src="client/Styles/images/Poweredby_100px_Badge.gif"
             alt="Powered by Giphy"
           />
         </div>

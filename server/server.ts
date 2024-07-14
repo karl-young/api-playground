@@ -1,14 +1,14 @@
 import express from 'express'
 import * as Path from 'node:path'
-import * as URL from 'node:url'
+
 import request from 'superagent'
 import cors from 'cors'
 
 import welcomeRouter from './routes/welcome.ts'
 import comicsRouter from './routes/marvel.ts'
 
-const __filename = URL.fileURLToPath(import.meta.url)
-const __dirname = Path.dirname(__filename)
+
+
 
 const server = express()
 
@@ -21,8 +21,6 @@ if (process.env.NODE_ENV === 'production') {
   server.get('*', (req, res) => {
     res.sendFile(Path.resolve('./dist/index.html'))
   })
-} else {
-  server.use(express.static(Path.join(__dirname, './public')))
 }
 
 server.use('/api/v1/comics', comicsRouter)

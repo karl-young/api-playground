@@ -1,11 +1,11 @@
 {
-  "name": "consuming-external-apis",
+  "name": "api-playground",
   "type": "module",
   "version": "0.2.2",
-  "description": "Consuming External APIs",
-  "repository": "https://github.com/dev-academy-challenges/consuming-external-apis.git",
+  "description": "Api-Playground",
+  "repository": "https://github.com/karl-young/api-playground",
   "main": "server/index.ts",
-  "author": "Dev Academy Aotearoa",
+  "author": "Dev Academy Aotearoa, karl young",
   "license": "ISC",
   "scripts": {
     "dev": "run-p dev:client dev:server",

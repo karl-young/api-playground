@@ -22,7 +22,7 @@
   align-items: center;
   border-radius: 2rem;
   box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
-  background-image: url('./images/Sky1920.jpg');
+  background-image: url('/Styles/images/Sky1920.jpg');
   color: rgb(0, 0, 0);
   padding: 20px;
   margin: auto;
@@ -179,27 +179,27 @@ input:checked + label .description {
 }
 
 .card[for='c1'] {
-  background-image: url('./images/summer.jpg');
+  background-image: url('/Styles/images/summer.jpg');
 }
 
 .card[for='c2'] {
-  background-image: url('./images/autum.jpg');
+  background-image: url('/Styles/images/autum.jpg');
 }
 
 .card[for='c3'] {
-  background-image: url('./images/Moraine-Lake.jpg');
+  background-image: url('/Styles/images/Moraine-Lake.jpg');
 }
 
 .card[for='c4'] {
-  background-image: url('./images/waterfall.jpg');
+  background-image: url('/Styles/images/waterfall.jpg');
 }
 
 .card[for='c5'] {
-  background-image: url('./images/Monument_Valley_1920.jpg');
+  background-image: url('/Styles/images/Monument_Valley_1920.jpg');
 }
 
 .card[for='c6'] {
-  background-image: url('./images/Castlegreen.jpg');
+  background-image: url('/Styles/images/Castlegreen.jpg');
 }
 
 ::-webkit-scrollbar {
